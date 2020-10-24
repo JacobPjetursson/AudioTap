@@ -35,8 +35,9 @@ public class GameManager : Singleton<GameManager>
 
         if (hitSprite != null) // allowed to not have a hitsprite
         {
-            // instantiate hit sprite
-            Instantiate(hitSprite, pos, Quaternion.identity, effects.transform);
+            // instantiate hit sprite and make sure it is on top of everything else
+            Vector3 foreground = new Vector3(pos.x, pos.y, -1);
+            Instantiate(hitSprite, foreground, Quaternion.identity, effects.transform);
         }
     }
 
